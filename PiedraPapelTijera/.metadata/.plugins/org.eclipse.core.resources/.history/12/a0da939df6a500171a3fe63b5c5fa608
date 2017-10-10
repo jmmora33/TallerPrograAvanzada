@@ -1,0 +1,9 @@
+package pruebaRand;
+
+public class Random {
+	int n;
+	
+	public void rand(int n){
+		System.out.println(Math.random()*1);
+	}
+}
