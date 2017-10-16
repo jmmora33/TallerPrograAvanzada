@@ -1,6 +1,11 @@
 package chat;
 
 import java.io.Serializable;
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class PaqueteEnvio implements Serializable{
 
@@ -11,6 +16,7 @@ public class PaqueteEnvio implements Serializable{
 	private String nick;
 	private String ip;
 	private String mensaje;
+	private ArrayList<String> conectados = new ArrayList<>();
 	
 	public PaqueteEnvio() {
 		
@@ -22,6 +28,15 @@ public class PaqueteEnvio implements Serializable{
 		this.ip = ip;
 		this.mensaje = mensaje;
 	}
+	
+	public ArrayList<String> getConectados() {
+		return conectados;
+	}
+
+	public void setConectados(ArrayList<String> conectados) {
+		this.conectados = conectados;
+	}
+
 	public String getNick() {
 		return nick;
 	}
