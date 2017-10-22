@@ -25,13 +25,14 @@ public class Servidor implements Runnable {
 	@Override
 	public void run() {
 		try {
-			socketServer = new ServerSocket(PUERTO);
+			socketServer = new ServerSocket(PUERTO,2);
+			
 			PaqueteEnvio recepcion;
 			String nombre, destinatario, mensaje;
 
 			while (true) {
 				atiendo = socketServer.accept();
-
+				System.out.println("Cliente con IP: " + atiendo.getInetAddress());
 				ObjectInputStream flujoEntrada = new ObjectInputStream(atiendo.getInputStream());
 				recepcion = (PaqueteEnvio) flujoEntrada.readObject();
 				nombre = recepcion.getNombre();
@@ -72,3 +73,4 @@ public class Servidor implements Runnable {
 		 
    }
 }
+
